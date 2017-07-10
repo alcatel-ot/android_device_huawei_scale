@@ -18,11 +18,11 @@ FORCE_32_BIT := true
 
 include device/cyanogen/msm8909-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/huawei/scale
-VENDOR_PATH := device/huawei/scale
+DEVICE_PATH := device/tcl/5051D
+VENDOR_PATH := device/tcl/5051D
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Honor4a,honor4a,Honor4A,honor4A,y6,Y6,scale,Scale,SCL-AL00,SCL-CL00,SCL-L01,SCL-L02,SCL-L03,SCL-L04,SCL-L21,SCL-TL00,SCL-TL10,SCL-U03,SCL-U21,SCL-U23,SCL-U31
+TARGET_OTA_ASSERT_DEVICE := 5051D,POP45
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -40,11 +40,6 @@ BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# CMHW
-BOARD_HARDWARE_CLASS += \
-    $(VENDOR_PATH)/cmhw
-TARGET_TAP_TO_WAKE_NODE := "/sys/touch_screen/easy_wakeup_gesture"
-
 # Flags
 BOARD_NO_SECURE_DISCARD := true
 
@@ -55,13 +50,9 @@ USE_DEVICE_SPECIFIC_GPS := true
 # Graphics
 TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 
-# Init
-TARGET_LIBINIT_MSM8909_DEFINES_FILE := $(VENDOR_PATH)/init/init_scale.cpp
-TARGET_UNIFIED_DEVICE := true
-
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/huawei/msm8916
-TARGET_KERNEL_CONFIG := lineageos_scale_defconfig
+TARGET_KERNEL_SOURCE := kernel/tcl/5051D
+TARGET_KERNEL_CONFIG := lineageos_5051D_defconfig
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -84,23 +75,7 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += $(VENDOR_PATH)
-#RECOVERY_VARIANT := twrp
-ifneq ($(RECOVERY_VARIANT),twrp)
 TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/recovery/recovery.fstab
-else
-TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/recovery/twrp.fstab
-RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
-DEVICE_RESOLUTION := 720x1280
-RECOVERY_SDCARD_ON_DATA := true
-TW_USE_TOOLBOX := true
-TW_NEW_ION_HEAP := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TW_TARGET_USES_QCOM_BSP := true
-TW_EXTRA_LANGUAGES := true
-TW_INPUT_BLACKLIST := "accelerometer\x0alis3dh-accel"
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-BOARD_SUPPRESS_SECURE_ERASE := true
-endif
 
 # RIL
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
@@ -116,5 +91,4 @@ USE_SENSOR_MULTI_HAL := true
 TARGET_PROVIDES_WCNSS_QMI := true
 
 # inherit from the proprietary version
--include vendor/huawei/msm8916-common/BoardConfigVendor.mk
--include vendor/huawei/scale/BoardConfigVendor.mk
+-include vendor/tcl/5051D/BoardConfigVendor.mk

@@ -17,15 +17,13 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/huawei/scale/device.mk)
+$(call inherit-product, device/tcl/5051D/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_DEVICE := scale
-PRODUCT_NAME := lineage_scale
-PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := scale
-PRODUCT_MANUFACTURER := HUAWEI
-
-PRODUCT_GMS_CLIENTID_BASE := android-huawei
+PRODUCT_DEVICE := 5051D
+PRODUCT_NAME := lineage_5051D
+PRODUCT_BRAND := tcl
+PRODUCT_MODEL := 5051D
+PRODUCT_MANUFACTURER := TCL

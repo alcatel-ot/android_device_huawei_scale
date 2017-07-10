@@ -18,11 +18,11 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/huawei/scale/device.mk)
+$(call inherit-product, device/tcl/5051D/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := scale
-PRODUCT_NAME := full_scale
-PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := scale
-PRODUCT_MANUFACTURER := HUAWEI
+PRODUCT_DEVICE := 5051D
+PRODUCT_NAME := full_5051D
+PRODUCT_BRAND := tcl
+PRODUCT_MODEL := 5051D
+PRODUCT_MANUFACTURER := TCL

@@ -26,8 +26,6 @@
 #
 
 on post-fs
-    # Symbols required for huawei blobs
-    export LD_SHIM_LIBS "/system/lib/libcutils.so|libshim_cutils.so:/system/bin/mm-qcamera-daemon|libqcamerasvr-c++.so"
 
 on boot
     # charger
@@ -47,15 +45,6 @@ on boot
     write /sys/block/mmcblk0/queue/add_random 0
     write /sys/block/mmcblk0/bdi/read_ahead_kb 128
 
-    # touchscreen
-    chown system system /sys/touch_screen/glove_func/signal_disparity
-    chown system system /sys/touch_screen/easy_wakeup_gesture
-
-    # NFC
-    setprop ro.nfc.port "I2C"
-    chmod 0660 /dev/pn544
-    chown nfc nfc /dev/pn544
-
 on post-fs
     swapon_all /fstab.qcom
     write /proc/sys/vm/page-cluster 0
@@ -73,11 +62,6 @@ service vm_bms /system/bin/vm_bms
     class core
     user root
     group root wakelock
-    writepid /dev/cpuset/system-background/tasks
-
-service hw_test_diag /system/bin/hw_test_diag
-    class core
-    user root
     writepid /dev/cpuset/system-background/tasks
 
 service rmt_oeminfo /system/bin/rmt_oeminfo
